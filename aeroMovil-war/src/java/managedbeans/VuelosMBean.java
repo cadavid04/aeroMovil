@@ -53,13 +53,18 @@ public class VuelosMBean implements Serializable {
     }
     
     public String update (){
-        System.out.println("###UPDATE###");
+        
         vuelo = vuelosManager.update(vuelo);
-        return "CustomerList";
+        return "vuelosList";
         }
     public String list (){
-        System.out.println("###LIST###");
-        return "VuelosList";
+       System.out.println("List");
+        return "List";
+    }
+    
+    public String home(){
+       System.out.println("Home");
+        return "Home";
     }
     
 }

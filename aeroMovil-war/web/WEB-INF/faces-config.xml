@@ -7,7 +7,23 @@
     <managed-bean-name>vuelosMbean</managed-bean-name>
     <managed-bean-class>managedbeans.VuelosMBean</managed-bean-class> 
     <managed-bean-scope>session</managed-bean-scope>  
-       
-</managed-bean>
+ </managed-bean>
+ 
+   <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+          <from-outcome>List</from-outcome>
+            <to-view-id>/vuelosList.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/vuelosList.xhtml</from-view-id>
+        <navigation-case>
+          <from-outcome>Home</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+   
     
 </faces-config>

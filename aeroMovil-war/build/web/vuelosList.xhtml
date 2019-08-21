@@ -3,14 +3,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
-    <h:head>
-        <title>Facelet Title</title>
-    </h:head>
-    <h:body>
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <ui:composition template="/template.xhtml">
+    <ui:define name="title">
+      <h:outputText value="Aplicación Aerolinea"></h:outputText>
+    </ui:define>
+        <ui:define name="body">
+     
         <f:view>
             <h:form>
-                <h1><h:outputText value="List"/></h1>
+                <h1><h:outputText value="Lista de vuelos disponibles"/></h1>
                 <p:dataTable value="#{vuelosMbean.vuelos}" var="item">
                     <p:column>
                         <f:facet name="header">
@@ -56,10 +59,26 @@
                         </f:facet>
                         <h:outputText value=" #{item.codRuta.destino}"/>
                     </p:column>
+                     <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Seleccionar"/>
+                        </f:facet>
+                        <h:commandButton id="comprar" value="Comprar"/>
+                        <h:commandButton id="reservar" value="Reservar"/>
+                    </p:column>
+                    
                 </p:dataTable>
+                <p>
+                    <h:commandButton id="back" value="Regresar" action="#{vuelosMBean.home()}"/>
+                </p>
+                
             </h:form>
         </f:view>
 
-    </h:body>
+    </ui:define>
+        <ui:define name="footer">
+      <h:outputText value="Aplicación móvil para Arquitectura de Software 2019 * Carlos Carrascal * Jose Duván Zapata"></h:outputText>
+    </ui:define>
+</ui:composition>
 </html>
 
